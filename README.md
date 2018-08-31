@@ -24,6 +24,7 @@ setuptools
 ## Example
 
 ```
+import time
 from win10toast import ToastNotifier
 toaster = ToastNotifier()
 toaster.show_toast("Hello World!!!",
@@ -37,7 +38,8 @@ toaster.show_toast("Example two",
                    duration=5,
                    threaded=True)
 # Wait for threaded notification to finish
-while toaster.notification_active(): time.sleep(0.1)
+while toaster.notification_active():
+    time.sleep(0.1)
 ```
 
 ## Compatibility with other Windows OSe
