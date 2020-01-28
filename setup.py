@@ -14,13 +14,17 @@ def from_here(relative_path):
 install_requires = [
     'pywin32',
     'setuptools',
-    'Pillow',
 ]
+
+extras_require = {
+    'pillow': ['Pillow']
+}
 
 setup(
     name='win10toast',
     version='0.9',
     install_requires=install_requires,
+    extras_require=extras_require,
     packages=['win10toast'],
     license='MIT',
     url='https://github.com/nuno-andre/Windows-10-Toast-Notifications',

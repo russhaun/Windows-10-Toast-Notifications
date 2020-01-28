@@ -10,12 +10,8 @@ __all__ = ['ToastNotifier']
 # standard library
 import logging
 import threading
-<<<<<<< HEAD
-from os import path
-=======
 from os import path, remove
 from time import sleep
->>>>>>> eabb2f3879aa84c112019b0409cd7f58911869ef
 from pkg_resources import Requirement
 from pkg_resources import resource_filename
 from time import sleep
@@ -52,7 +48,11 @@ from win32gui import PumpMessages
 # Magic constants
 PARAM_DESTROY = 1028
 PARAM_CLICKED = 1029
-from PIL import Image
+
+try:
+    from PIL import Image
+except ImportError:
+    Image = None
 
 # ############################################################################
 # ########### Classes ##############
@@ -112,7 +112,8 @@ class ToastNotifier(object):
         # icon
         if icon_path is not None:
             icon_path = path.realpath(icon_path)
-            if icon_path.split('.')[-1] != '.ico':
+            converted = False
+            if Image is not None and icon_path.split('.')[-1] != '.ico':
                 img = Image.open(icon_path)
                 new_name = icon_path.split('.')[:-1] + '.ico'
                 img.save(new_name)

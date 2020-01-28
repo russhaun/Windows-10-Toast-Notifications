@@ -13,6 +13,11 @@ An easy-to-use Python library for displaying Windows 10 Toast Notifications whic
 pip install git+git://github.com/nuno-andre/Windows-10-Toast-Notifications@master#egg=win10toast
 ```
 
+Installing `Pillow` will add automatic conversion from PIL supported images to ico:
+```
+pip install git+git://github.com/nuno-andre/Windows-10-Toast-Notifications@master#egg=win10toast[pillow]
+```
+
 ## Requirements
 
 ### Installation of pywin32
