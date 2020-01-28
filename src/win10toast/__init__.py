@@ -119,7 +119,7 @@ class ToastNotifier(object):
         icon_flags = LR_LOADFROMFILE | LR_DEFAULTSIZE
         try:
             hicon = LoadImage(self.hinst, icon_path, IMAGE_ICON, 0, 0, icon_flags)
-            if path.exists(new_name and converted):
+            if Image and path.exists(new_name and converted):
                 remove(new_name)
         except Exception as e:
             logging.error('Some trouble with the icon (%s): %s', icon_path, e)

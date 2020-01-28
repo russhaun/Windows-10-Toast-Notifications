@@ -1,24 +1,12 @@
 from pathlib import Path
 from setuptools import setup
 
-try:
-    # pip >= 10
-    from pip._internal.req import parse_requirements
-except ImportError:
-    # pip <= 9.0.3
-    from pip.req import parse_requirements
-
 def from_here(relative_path):
     return Path(__file__).resolve().parent.joinpath(relative_path)
 
-install_requires = [
-    'pywin32',
-    'setuptools',
-]
+install_requires = ['pywin32']
 
-extras_require = {
-    'pillow': ['Pillow']
-}
+extras_require = {'pillow': ['Pillow']}
 
 setup(
     name='win10toast',
@@ -38,6 +26,7 @@ setup(
         '': ['*.txt'],
         'win10toast': ['data/*.ico'],
     },
+    package_dir={'': 'src'},
     long_description=from_here('README.md').read_text(),
     long_description_content_type='text/markdown',
     author='Jithu R Jacob',
