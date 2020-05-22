@@ -10,20 +10,26 @@ An easy-to-use Python library for displaying Windows 10 Toast Notifications whic
 ## Installation
 
 ```
-pip install win10toast
+pip install git+git://github.com/nuno-andre/Windows-10-Toast-Notifications@master#egg=win10toast
+```
+
+Installing `Pillow` will add automatic conversion from PIL supported images to ico:
+```
+pip install git+git://github.com/nuno-andre/Windows-10-Toast-Notifications@master#egg=win10toast[pillow]
 ```
 
 ## Requirements
 
 ### Installation of pywin32
 ```
-pypiwin32
+pywin32
 setuptools
 ```
 
 ## Example
 
 ```
+import time
 from win10toast import ToastNotifier
 toaster = ToastNotifier()
 toaster.show_toast("Hello World!!!",
@@ -37,18 +43,31 @@ toaster.show_toast("Example two",
                    duration=5,
                    threaded=True)
 # Wait for threaded notification to finish
-while toaster.notification_active(): time.sleep(0.1)
+while toaster.notification_active():
+    time.sleep(0.1)
 ```
+
+## Compatibility with other Windows OSe
+
+The library also works with nonWin10-OSes, so feel free to use it on Windows 7 as well...
+
+![Win7img](http://justpic.info/images4/8f3b/2018112513_25_30computerhpTightVNCViewer.png)
 
 ## Contributors [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/jithurjacob/Windows-10-Toast-Notifications/issues)
 
-+ [sidc9](https://github.com/sidc9)
-+ [sakurai-youhei](https://github.com/sakurai-youhei)
++ [Berailitz](https://github.com/Berailitz)
 + [BroderickCarlin](https://github.com/BroderickCarlin)
-+ [florianluediger](https://github.com/florianluediger)
++ [CharnelX](https://github.com/Charnelx)
++ [cyberhobbes](https://github.com/cyberhobbes)
 + [eric-wieser](https://github.com/eric-wieser)
++ [florianluediger](https://github.com/florianluediger)
++ [Frozander](https://github.com/Frozander)
 + [Guts](https://github.com/Guts)
-
++ [jfthuong](https://github.com/jfthuong)
++ [redreamality](https://github.com/redreamality)
++ [sakurai-youhei](https://github.com/sakurai-youhei)
++ [sidc9](https://github.com/sidc9)
++ [spookyahell](https://github.com/spookyahell)
 
 ## License
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fjithurjacob%2FWindows-10-Toast-Notifications.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fjithurjacob%2FWindows-10-Toast-Notifications?ref=badge_large)
